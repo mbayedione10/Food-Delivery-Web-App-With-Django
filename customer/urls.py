@@ -12,12 +12,11 @@ from customer.views import *
 
 urlpatterns = [
     path('', Index.as_view(), name = 'index'),
-    path('accounts/', include('allauth.urls')),
     path('about/', About.as_view(), name = 'about'),
     path('order/', Order.as_view(), name = 'order'),
     path('order-confrmation/<int:pk>', OrderConfirmation1.as_view(), name = 'order-confirmation'),
     path('payment_confirmation/', OrderPayConfirmation.as_view(), name = 'payment-submitted'),
-    url('restaurant/', include('restaurant.urls'))
+ 
 
 
-] 
+]

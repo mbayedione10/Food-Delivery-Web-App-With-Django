@@ -19,13 +19,19 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from customer import views
+from customer.views import Index
 
 
 
 urlpatterns = [
+    path('', Index.as_view(), name = 'index'),
     url(r'^admin/', admin.site.urls),
-    url('customer/', include('customer.urls'))
+    url('customer/', include('customer.urls')),
+    url('restaurant/', include('restaurant.urls')),
+    path('accounts/', include('allauth.urls')),
+
+
+    
 
 ] 
 
