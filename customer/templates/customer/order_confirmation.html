@@ -1,0 +1,77 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+<div class="container mb-5">
+    <div class="row justify-content-center mt-1">
+        <div class="col-md-5 col-sm-12 p-4 text-center">
+            <h1>Order Submitted!</h1>
+            <p>You should receive a confirmation email soon.</p>
+            <a href="{% url 'index' %}">Go to the homepage</a>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5 col-sm-12 text-center">
+            <h3 class="pb-3">Order Summary:</h3>
+            {% for item in items.all %}
+
+                <p>{{ item.name }} <span class="pl-3">{{ item.price }}</span></p>
+            {% endfor %}
+            
+            <!--span>{{ items }}</span-->
+            <p class="font-weight-bold pt-4">Total: {{ price }}</p>
+        </div>
+    </div>
+    <div class="row justify-content-center ">
+        <div class="col-md-6 text-center">
+            <h3>Pay now or at delivery</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <div id="paypal-button"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+  paypal.Button.render({
+    // Configure environment
+    env: 'sandbox',
+    client: {
+      sandbox: 'demo_sandbox_client_id',
+      production: 'demo_production_client_id'
+    },
+    // Customize button (optional)
+    locale: 'en_US',
+    style: {
+      size: 'large',
+      color: 'blue',
+      shape: 'pill',
+    },
+
+    // Enable Pay Now checkout flow (optional)
+    commit: true,
+
+    // Set up a payment
+    payment: function(data, actions) {
+      return actions.payment.create({
+        transactions: [{
+          amount: {
+            total: '{{ price }}',
+            currency: 'USD'
+          }
+        }]
+      });
+    },
+    // Execute the payment
+    onAuthorize: function(data, actions) {
+      return actions.payment.execute().then(function() {
+        // Show a confirmation message to the buyer
+        window.alert('Thank you for your purchase!');
+      });
+    }
+  }, '#paypal-button');
+
+</script>
+{% endblock content %}
