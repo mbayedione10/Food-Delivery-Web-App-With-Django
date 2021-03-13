@@ -31,6 +31,7 @@ class OrderModel(models.Model):
     state = models.CharField(max_length=15, blank=True)
     zip_code = models.IntegerField(null=True, blank=True) 
     is_paid = models.BooleanField(default=False)
+    is_shipped = models.BooleanField(default=False)
 
 
     def __str__(self):
