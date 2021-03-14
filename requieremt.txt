@@ -12,3 +12,7 @@ Pillow==8.1.1
 pip==21.0.1
 requests==2.25.1
 setuptools==40.8.0
+
+
+
+#done with https://www.youtube.com/playlist?list=PLPSM8rIid1a0qiCpbfujex5lZoXr2SRFC
