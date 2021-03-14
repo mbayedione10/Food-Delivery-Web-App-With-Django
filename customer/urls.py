@@ -16,7 +16,8 @@ urlpatterns = [
     path('order/', Order.as_view(), name = 'order'),
     path('order-confrmation/<int:pk>', OrderConfirmation1.as_view(), name = 'order-confirmation'),
     path('payment_confirmation/', OrderPayConfirmation.as_view(), name = 'payment-submitted'),
- 
+    path('menu/', Menu.as_view(), name= 'menu'),
+    path('menu/search', MenuSearch.as_view(), name='menu-search'),
 
 
 ]

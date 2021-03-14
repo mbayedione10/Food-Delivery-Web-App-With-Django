@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.views import View
 from customer.models import *
+from django.db.models import Q
 from django.core.mail import send_mail
 from rest_framework.response import Response
 from customer.serializers import *
@@ -277,5 +278,36 @@ class OrderConfirmation1(View):
 
 
 class OrderPayConfirmation(View):
-    def get(self, request, *args, **kargs):
+    def get(self, request, *args, **kwargs):
         return render(request, 'customer/order_pay_confirmation.html')
+
+
+class Menu(View):
+
+    def get(self, request, *args, **kwargs):
+        menu_items = MenuItem.objects.all()
+
+        context ={
+            'menu_items': menu_items
+        }
+
+        return render(request, 'customer/menu.html', context)
+
+
+
+class MenuSearch(View):
+    def get(self, request, *args, **kwargs):
+        query = self.request.GET.get("q")
+
+
+        menu_items = MenuItem.objects.filter(
+            Q(name__icontains=query) |
+            Q(price__icontains=query) |
+            Q(description__icontains=query)
+        )
+
+        context = {
+            'menu_items': menu_items
+        }
+
+        return render(request, 'customer/menu.html', context)
