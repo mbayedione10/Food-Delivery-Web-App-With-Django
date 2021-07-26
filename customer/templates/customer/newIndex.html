@@ -1,0 +1,120 @@
+{% extends 'customer/base2.html' %}
+{% load static %}
+{% block content %}
+
+<section class="ftco-cover"  style="background-image: url('{% static "customer/bg_3.jpg"%}')"; id="section-home">
+<div class="container">
+  <div class="row align-items-center justify-content-center text-center ftco-vh-100">
+    <div class="col-md-12">
+      <h1 class="ftco-heading ftco-animate mb-3">Welcome To Taste Restaurant</h1>   
+      <p><a href="{% url 'order' %}" class="btn btn-outline-white btn-lg ftco-animate">Order Now</a></p>
+    </div>
+  </div>
+</div>
+</section>
+<!-- END section -->
+
+<section class="ftco-section" id="section-gallery">
+  <div class="container">
+    <div class="row ftco-custom-gutters">
+
+      <div class="col-md-12 text-center mb-5 ftco-animate">
+        <h2 class="display-4">Food Gallery</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-7">
+            <p class="lead">Good food is the foundation of happiness</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 ftco-animate">
+        <a href="{% static 'images/img-1.jpeg' %}" class="ftco-thumbnail image-popup">
+          <img src="{% static 'images/img-1.jpeg' %}" alt="Free Template by Free-Template.co" class="img-fluid">
+        </a>
+      </div>
+      <div class="col-md-4 ftco-animate">
+        <a href="{% static 'images/menu_2.jpg' %}" class="ftco-thumbnail image-popup">
+          <img src="{% static 'images/menu_2.jpg' %}" alt="Free Template by Free-Template.co" class="img-fluid">
+        </a>
+      </div>
+      <div class="col-md-4 ftco-animate">
+        <a href="{% static 'images/img-2.jpeg' %}" class="ftco-thumbnail image-popup">
+          <img src="{% static 'images/img-2.jpeg' %}" alt="Free Template by Free-Template.co" class="img-fluid">
+        </a>
+      </div>
+
+      <div class="col-md-4 ftco-animate">
+        <a href="{% static 'images/img-3.jpeg' %}" class="ftco-thumbnail image-popup">
+          <img src="{% static 'images/img-3.jpeg' %}" alt="Free Template by Free-Template.co" class="img-fluid">
+        </a>
+      </div>
+      <div class="col-md-4 ftco-animate">
+        <a href="{% static 'images/menu_3.jpg' %}" class="ftco-thumbnail image-popup">
+          <img src="{% static 'images/menu_3.jpg' %}" alt="Free Template by Free-Template.co" class="img-fluid">
+        </a>
+      </div>
+      <div class="col-md-4 ftco-animate">
+        <a href="{% static 'images/menu_1.jpg' %}" class="ftco-thumbnail image-popup">
+          <img src="{% static 'images/menu_1.jpg' %}" alt="Free Template by Free-Template.co" class="img-fluid">
+        </a>
+      </div>
+
+
+      <div class="col-md-4 ftco-animate">
+        <a href="{% static 'images/img-4.jpeg' %}" class="ftco-thumbnail image-popup">
+          <img src="{% static 'images/img-4.jpeg' %}" alt="Free Template by Free-Template.co" class="img-fluid">
+        </a>
+      </div>
+      <div class="col-md-4 ftco-animate">
+        <a href="{% static 'images/img-5.jpeg' %}" class="ftco-thumbnail image-popup">
+          <img src="{% static 'images/img-5.jpeg' %}" alt="Free Template by Free-Template.co" class="img-fluid">
+        </a>
+      </div>
+      <div class="col-md-4 ftco-animate">
+        <a href="{% static 'images/img-6.jpeg' %}" class="ftco-thumbnail image-popup">
+          <img src="{% static 'images/img-6.jpeg' %}" alt="Free Template by Free-Template.co" class="img-fluid">
+        </a>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+<!-- END section -->
+
+<section class="ftco-section bg-light" id="section-contact">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-12 text-center mb-5 ftco-animate">
+        <h2 class="display-4">Contact Us</h2>
+      </div>
+
+      <div class="col-md mb-5 ftco-animate">
+        
+        <form method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="name" class="sr-only">Name</label>
+            <input type="text" class="form-control" id="name" name= "name" placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label for="email" class="sr-only">Email</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="message" class="sr-only">Message</label>
+            <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Write your message"></textarea>
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary btn-lg" value="Send Message">
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</section>
+<!-- END section -->
+
+{% endblock content %}
