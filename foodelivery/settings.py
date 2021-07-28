@@ -161,3 +161,6 @@ ACCOUNT_ADAPTER = 'restaurant.account_adapter.NoNewUsersAccountAdapter'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'dashboard'
+
+# Default primary key field type
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
