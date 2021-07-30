@@ -6,11 +6,34 @@ from django.db.models import Q
 from django.core.mail import send_mail
 from rest_framework.response import Response
 from customer.serializers import *
+from django.conf import settings
+from django.core.mail import send_mail
+
 
 
 class Index(View):
     def get(self,request, *args, **kwargs):
         return render(request,'customer/index.html')
+    def post(self, request, *args, **kwargs):
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        mail_client={
+            'name': name,
+            'message': message
+        }
+        # After everything is done, send confirmation mail to the user
+        if settings.DEBUG == False:
+            body = (f'{mail_client} \n')
+            email_from=email
+            send_mail(
+                f'message de {name}',
+                body,
+                email_from,
+                ['nioulboy@gmailcom'],
+                fail_silently=False
+            )
+        return redirect('index')
 
 
 class About(View):
@@ -211,8 +234,9 @@ class Order(View):
                 'order_id': order.id
             }
         # return render(request, 'customer/order_confirmation.html', context)
-
-        return redirect('order-confirmation', pk=order.pk)
+        #TODO submit button before popup and add Popup with total price and paypal button
+        return redirect('index')
+        
 
 
 
