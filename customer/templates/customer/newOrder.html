@@ -19,7 +19,7 @@
                     <div class="pt-5">
                         <div class="row justify-content-center">
                         {% for app in appetizers %}
-                            <div class="col-md-4 col-sm-12 text-center media d-block ">
+                            <div class="col-md-4 col-sm-12 text-center media d-block pt-3">
                                 <div class="mb-4 text-center ftco-media ftco-animate border-0">
                                     <img class="img-fluid rounded" src="{{ app.image.url }}" width="250" height="200"/>
                                 </div>
@@ -28,9 +28,7 @@
                                     <h5 class="text-primary mb-3">${{ app.price }}</h5>
                                     <p>{{ app.description }}</p>
                                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <div class="form-control">
-                                            <input type="checkbox" name="items[]" class="form-check-input" value="{{ app.pk }}">
-                                        </div>
+                                    <input type="checkbox" name="items[]" class="form-control" value="{{ app.pk }}">
                                 </div>
                             </div>
                             {% endfor %}
@@ -41,7 +39,7 @@
                     <div class="pt-5">
                         <div class="row justify-content-center">
                         {% for entree in entres %}
-                            <div class="col-md-4 col-sm-12 text-center media d-block ">
+                            <div class="col-md-4 col-sm-12 text-center media d-block pt-3">
                                 <div class="mb-4 text-center ftco-media ftco-animate border-0">
                                     <img class="img-fluid rounded" src="{{ entree.image.url }}" width="250" height="200"/>
                                 </div>
@@ -50,9 +48,7 @@
                                     <h5 class="text-primary mb-3">${{ entree.price }}</h5>
                                     <p>{{ entree.description }}</p>
                                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <div class="form-control">
-                                            <input type="checkbox" name="items[]" class="form-check-input" value="{{ entree.pk }}">
-                                        </div>
+                                    <input type="checkbox" name="items[]" class="form-control" value="{{ entree.pk }}">
                                 </div>
                             </div>
                             {% endfor %}
@@ -63,7 +59,7 @@
                     <div class="pt-5">
                         <div class="row justify-content-center">
                         {% for dessert in desserts %}
-                            <div class="col-md-4 col-sm-12 text-center media d-block ">
+                            <div class="col-md-4 col-sm-12 text-center media d-block pt-3">
                                 <div class="mb-4 text-center ftco-media ftco-animate border-0">
                                     <img class="img-fluid rounded" src="{{ dessert.image.url }}" width="250" height="200"/>
                                 </div>
@@ -72,9 +68,7 @@
                                     <h5 class="text-primary mb-3">${{ dessert.price }}</h5>
                                     <p>{{ dessert.description }}</p>
                                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <div class="form-control">
-                                            <input type="checkbox" name="items[]" class="form-check-input" value="{{ dessert.pk }}">
-                                        </div>
+                                    <input type="checkbox" name="items[]" class="form-control" value="{{ dessert.pk }}">
                                 </div>
                             </div>
                             {% endfor %}
@@ -85,7 +79,7 @@
                     <div class="pt-5">
                         <div class="row justify-content-center">
                         {% for drink in drinks %}
-                            <div class="col-md-4 col-sm-12 text-center media d-block ">
+                            <div class="col-md-4 col-sm-12 text-center media d-block pt-3">
                                 <div class="mb-4 text-center ftco-media ftco-animate border-0">
                                     <img class="img-fluid rounded" src="{{ drink.image.url }}" width="250" height="200"/>
                                 </div>
@@ -94,9 +88,7 @@
                                     <h5 class="text-primary mb-3">${{ drink.price }}</h5>
                                     <p>{{ drink.description }}</p>
                                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <div class="form-control">
-                                            <input type="checkbox" name="items[]" class="form-check-input" value="{{ drink.pk }}">
-                                        </div>
+                                    <input type="checkbox" name="items[]" class="form-control" value="{{ drink.pk }}">
                                 </div>
                             </div>
                             {% endfor %}
