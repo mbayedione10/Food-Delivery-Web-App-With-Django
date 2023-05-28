@@ -1,5 +1,4 @@
 # This file specifies files that are *not* uploaded to Github
 .vscode
 myenv/
-static/
 media/
